@@ -6,3 +6,4 @@
 /dist/
 /main.log
 *.spec
+__pycache__/
