@@ -25,12 +25,29 @@ HEADERS = {
     "accept-encoding": "gzip",
     "host": "api.moguding.net:9000",
 }
+VERSION_URL = "https://raw.githubusercontent.com/GhostByte7/gongxueyun/main/version.txt"
+DEFAULT_VERSION = "5.31.6"
 
 
 class ApiService:
     def __init__(self):
-
         self.max_retries = 5  # 控制重新尝试的次数
+        self._app_version = None
+
+    def _get_version(self) -> str:
+        """从 GitHub 获取最新版本号，失败则使用默认值"""
+        if self._app_version:
+            return self._app_version
+        try:
+            resp = requests.get(VERSION_URL, timeout=5)
+            if resp.status_code == 200:
+                self._app_version = resp.text.strip()
+                logger.info(f"获取到最新版本: {self._app_version}")
+                return self._app_version
+        except Exception as e:
+            logger.warning(f"获取版本号失败: {e}")
+        self._app_version = DEFAULT_VERSION
+        return self._app_version
 
     def _post_request(
             self,
@@ -258,7 +275,7 @@ class ApiService:
                 "loginType": "android",
                 "uuid": str(uuid.uuid4()).replace("-", ""),
                 "device": "android",
-                "version": "5.31.6",
+                "version": self._get_version(),
                 "t": aes_encrypt(str(int(time.time() * 1000))),
             }
 
