@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 # 模型目录的绝对路径
 if getattr(sys, 'frozen', False):
-    _BASE_DIR = os.path.dirname(sys.executable)
+    _BASE_DIR = sys._MEIPASS
 else:
     _BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
