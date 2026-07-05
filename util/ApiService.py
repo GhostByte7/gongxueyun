@@ -258,7 +258,7 @@ class ApiService:
                 "loginType": "android",
                 "uuid": str(uuid.uuid4()).replace("-", ""),
                 "device": "android",
-                "version": "5.16.0",
+                "version": "5.31.6",
                 "t": aes_encrypt(str(int(time.time() * 1000))),
             }
 
