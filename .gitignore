@@ -1,0 +1,8 @@
+/config_backup.json
+/config.json
+/.idea/
+/build/
+/user/
+/dist/
+/main.log
+*.spec

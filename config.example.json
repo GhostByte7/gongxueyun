@@ -1,0 +1,52 @@
+{
+  "config": {
+    "user": {
+      "phone": "请输入手机号",
+      "password": "请输入密码"
+    },
+    "clockIn": {
+      "mode": "everyday",
+      "location": {
+        "address": "请填写打卡地址",
+        "latitude": "",
+        "longitude": "",
+        "province": "",
+        "city": "",
+        "area": ""
+      },
+      "holidaysClockIn": false,
+      "customDays": [1, 2, 3, 4, 5],
+      "time": {
+        "start": "08:50",
+        "float": 5
+      }
+    },
+    "clockInOff": {
+      "mode": "everyday",
+      "location": {
+        "address": "请填写打卡地址",
+        "latitude": "",
+        "longitude": "",
+        "province": "",
+        "city": "",
+        "area": ""
+      },
+      "holidaysClockIn": false,
+      "customDays": [1, 2, 3, 4, 5],
+      "time": {
+        "start": "18:00",
+        "float": 5
+      }
+    },
+    "smtp": {
+      "enable": false,
+      "host": "smtp.qq.com",
+      "port": 465,
+      "username": "",
+      "password": "",
+      "from": "打卡通知",
+      "to": []
+    },
+    "device": "{brand: Xiaomi 14, systemVersion: 16, Platform: Android, isPhysicalDevice: true, incremental: 25098PN5AC}"
+  }
+}
